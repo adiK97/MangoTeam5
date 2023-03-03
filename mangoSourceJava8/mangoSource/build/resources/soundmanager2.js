@@ -79,7 +79,7 @@ function SoundManager(smURL,smID) {
   this.oMC = null;
   this.sounds = {};
   this.soundIDs = [];
-  this.muted = false;
+  this.muted = true;
   this.isIE = (navigator.userAgent.match(/MSIE/i));
   this.isSafari = (navigator.userAgent.match(/safari/i));
   this.isGecko = (navigator.userAgent.match(/gecko/i));
