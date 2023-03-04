@@ -79,7 +79,7 @@ function SoundManager(smURL,smID) {
   this.oMC = null;
   this.sounds = {};
   this.soundIDs = [];
-  this.muted = true;
+  this.muted = false;
   this.isIE = (navigator.userAgent.match(/MSIE/i));
   this.isSafari = (navigator.userAgent.match(/safari/i));
   this.isGecko = (navigator.userAgent.match(/gecko/i));
@@ -1072,7 +1072,7 @@ function SoundManager(smURL,smID) {
     _t.playState = 0;
     _t.paused = false;
     _t.readyState = 0; // 0 = uninitialised, 1 = loading, 2 = failed/error, 3 = loaded/success
-    _t.muted = true;
+    _t.muted = false;
     _t.didBeforeFinish = false;
     _t.didJustBeforeFinish = false;
     _t.instanceOptions = {};
