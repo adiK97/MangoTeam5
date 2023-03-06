@@ -90,7 +90,10 @@ public class DataPointDetailsDwr extends BaseDwr {
 
         for (PointValueTime pvt : rawData) {
             RenderedPointValueTime rpvt = new RenderedPointValueTime();
+            // to set History table value
             rpvt.setValue(Functions.getHtmlText(pointVO, pvt));
+//            rpvt.setValue("1");
+
             rpvt.setTime(Functions.getTime(pvt));
             if (pvt.isAnnotated()) {
                 AnnotatedPointValueTime apvt = (AnnotatedPointValueTime) pvt;
