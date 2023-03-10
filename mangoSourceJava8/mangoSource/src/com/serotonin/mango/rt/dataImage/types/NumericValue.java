@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.serotonin.mango.rt.dataImage.types;
-
+import java.text.DecimalFormat;
 import com.serotonin.mango.DataTypes;
 
 /**
@@ -88,7 +88,13 @@ public class NumericValue extends MangoValue implements Comparable<NumericValue>
 
     @Override
     public String toString() {
-        return Double.toString(value);
+//        Double truncatedValue;
+//        truncatedValue = value * Math.pow(10, 2);
+//        truncatedValue = Math.floor(truncatedValue);
+//        truncatedValue = truncatedValue / Math.pow(10,2);
+         return Double.toString( value);
+//        return Double.toString(truncatedValue);
+
     }
 
     @Override
