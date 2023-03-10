@@ -70,6 +70,7 @@ public class PointValueTime implements Serializable, IValueTime {
 
     public PointValueTime(double value, long time) {
         this(new NumericValue(value), time);
+      
     }
 
     public PointValueTime(String value, long time) {

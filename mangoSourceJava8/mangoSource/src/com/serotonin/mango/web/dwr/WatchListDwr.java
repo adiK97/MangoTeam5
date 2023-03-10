@@ -105,6 +105,7 @@ public class WatchListDwr extends BaseDwr {
         for (DataPointVO point : watchList.getPointList()) {
             // Create the watch list state.
             state = createWatchListState(request, point, rtm, model, user);
+
             states.add(state);
         }
 
@@ -271,6 +272,8 @@ public class WatchListDwr extends BaseDwr {
 
         PointValueTime pointValue = prepareBasePointState(Integer.toString(pointVO.getId()), state, pointVO, point,
                 model);
+//        PointValueTime pointValue = prepareBasePointState("1", state, pointVO, point,
+//                model);
         setEvents(pointVO, user, model);
         if (pointValue != null && pointValue.getValue() instanceof ImageValue) {
             // Text renderers don't help here. Create a thumbnail.

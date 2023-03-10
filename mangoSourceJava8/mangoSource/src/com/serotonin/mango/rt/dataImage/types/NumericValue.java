@@ -88,14 +88,12 @@ public class NumericValue extends MangoValue implements Comparable<NumericValue>
 
     @Override
     public String toString() {
-        Double truncatedValue;
-        truncatedValue = value * Math.pow(10, 2);
-        truncatedValue = Math.floor(truncatedValue);
-        truncatedValue = truncatedValue / Math.pow(10,2);
-        // return Double.toString( value);        
-        return Double.toString(truncatedValue);
-
-        // return new DecimalFormat("#.##").format((value));
+//        Double truncatedValue;
+//        truncatedValue = value * Math.pow(10, 2);
+//        truncatedValue = Math.floor(truncatedValue);
+//        truncatedValue = truncatedValue / Math.pow(10,2);
+         return Double.toString( value);
+//        return Double.toString(truncatedValue);
 
     }
 
