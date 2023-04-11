@@ -431,13 +431,24 @@
     		  alert("<fmt:message key="watchlist.noExportables"/>");
     	  else {
               startImageFader($("chartDataImg"));
-              WatchListDwr.getChartData(getChartPointList(), $get("fromYear"), $get("fromMonth"), $get("fromDay"), 
+             <%-- Old method
+              WatchListDwr.getChartData(getChartPointList(), $get("fromYear"), $get("fromMonth"), $get("fromDay"),
                       $get("fromHour"), $get("fromMinute"), $get("fromSecond"), $get("fromNone"), $get("toYear"), 
                       $get("toMonth"), $get("toDay"), $get("toHour"), $get("toMinute"), $get("toSecond"), $get("toNone"), 
                       function(data) {
                   stopImageFader($("chartDataImg"));
                   window.location = "chartExport/watchListData.csv";
               });
+              --%>
+              <%--New method--%>
+              ChartParameters chartParams = new ChartParameters(getChartPointList(), $get("fromYear"), $get("fromMonth"), $get("fromDay"),
+                                      $get("fromHour"), $get("fromMinute"), $get("fromSecond"), $get("fromNone"), $get("toYear"), $get("toMonth"),
+                                      $get("toDay"), $get("toHour"), $get("toMinute"), $get("toSecond"), $get("toNone"));
+              WatchListDwr.getChartData(chartParams, function(data) {
+                  stopImageFader($("chartDataImg"));
+                  window.location = "chartExport/watchListData.csv";
+              });
+
     	  }
       }
       

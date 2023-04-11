@@ -146,7 +146,13 @@ public class PointLinksDwr extends BaseDwr {
         else {
             Map<String, IDataPoint> context = new HashMap<String, IDataPoint>();
             context.put(PointLinkRT.CONTEXT_VAR_NAME, point);
-            int targetDataType = new DataPointDao().getDataPoint(targetPointId).getPointLocator().getDataTypeId();
+//          Old call
+//            int targetDataType = new DataPointDao().getDataPoint(targetPointId).getPointLocator().getDataTypeId();
+
+
+//          New call
+            int targetDataType = new DataPointDao().getTargetDataType(targetPointId);
+
 
             try {
                 PointValueTime pvt = scriptExecutor.execute(script, context, System.currentTimeMillis(),

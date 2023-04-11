@@ -431,13 +431,29 @@ public class WatchListDwr extends BaseDwr {
         return watchList.getWatchListUsers();
     }
 
+
+// Old method:
+//    @MethodFilter
+//    public void getChartData(int[] pointIds, int fromYear, int fromMonth, int fromDay, int fromHour, int fromMinute,
+//            int fromSecond, boolean fromNone, int toYear, int toMonth, int toDay, int toHour, int toMinute,
+//            int toSecond, boolean toNone) {
+//        DateTime from = createDateTime(fromYear, fromMonth, fromDay, fromHour, fromMinute, fromSecond, fromNone);
+//        DateTime to = createDateTime(toYear, toMonth, toDay, toHour, toMinute, toSecond, toNone);
+//        DataExportDefinition def = new DataExportDefinition(pointIds, from, to);
+//        Common.getUser().setDataExportDefinition(def);
+//    }
+
+//    New method:
     @MethodFilter
-    public void getChartData(int[] pointIds, int fromYear, int fromMonth, int fromDay, int fromHour, int fromMinute,
-            int fromSecond, boolean fromNone, int toYear, int toMonth, int toDay, int toHour, int toMinute,
-            int toSecond, boolean toNone) {
-        DateTime from = createDateTime(fromYear, fromMonth, fromDay, fromHour, fromMinute, fromSecond, fromNone);
-        DateTime to = createDateTime(toYear, toMonth, toDay, toHour, toMinute, toSecond, toNone);
-        DataExportDefinition def = new DataExportDefinition(pointIds, from, to);
+    public void getChartData(ChartParameters chartParameters) {
+        DateTime from = createDateTime(chartParameters.getFromYear(), chartParameters.getFromMonth(),
+                chartParameters.getFromDay(), chartParameters.getFromHour(), chartParameters.getFromMinute(),
+                chartParameters.getFromSecond(), chartParameters.isFromNone());
+        DateTime to = createDateTime(chartParameters.getToYear(), chartParameters.getToMonth(),
+                chartParameters.getToDay(), chartParameters.getToHour(), chartParameters.getToMinute(),
+                chartParameters.getToSecond(), chartParameters.isToNone());
+        DataExportDefinition def = new DataExportDefinition(chartParameters.getPointIds(), from, to);
         Common.getUser().setDataExportDefinition(def);
     }
+
 }

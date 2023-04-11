@@ -58,6 +58,13 @@ import com.serotonin.util.SerializationHelper;
 import com.serotonin.util.Tuple;
 
 public class DataPointDao extends BaseDao {
+
+//     Refactored using the Hide delegate method
+    public int getTargetDataType(int targetPointId) {
+        DataPoint targetDataPoint = getDataPoint(targetPointId);
+        return targetDataPoint.getPointLocator().getDataTypeId();
+    }
+
     public DataPointDao() {
         super();
     }
